@@ -1,6 +1,6 @@
 ## HMSS & HMSS-CLIENT
 
-　　一个我本人制作和使用的 Shadowsocks + KCPTUN 的 Docker 镜像，顺带分享出来，如果你有需要的话可以随意借鉴和使用。HMSS-Client为HMSS配套使用的Linux客户端镜像。
+　　一个我本人制作和使用的 Shadowsocks + KCPTUN 的 Docker 镜像，顺带分享出来，如果你有需要的话可以随意借鉴和使用。HMSS-Client为HMSS配套使用的Linux客户端镜像。HMSS见：https://github.com/Hazx/hmss-docker
 
 
 ## 使用
