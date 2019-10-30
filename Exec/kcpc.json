@@ -1,0 +1,20 @@
+{
+    "localaddr": ":2081",
+    "remoteaddr": "KCP_SERVER",
+    "key": "KCP_PWD",
+    "crypt": "KCP_CR",
+    "mode": "KCP_MODE",
+    "conn": KCP_CONN,
+    "autoexpire": KCP_KTIME,
+    "scavengettl": KCP_TTIME,
+    "mtu": KCP_MTU,
+    "sndwnd": KCP_SW,
+    "rcvwnd": KCP_RW,
+    "datashard": KCP_DS,
+    "parityshard": KCP_PS,
+    "dscp": KCP_SDSCP,
+    "sockbuf": KCP_BUF,
+    "keepalive": 10,
+    "log": "/root/hmss/kcpc.log",
+    "quiet": true
+}
