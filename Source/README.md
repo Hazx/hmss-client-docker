@@ -21,7 +21,7 @@ KCPTUN (2) | 2082 | UDP - KCPTUN
 
 ## 构建镜像前的准备工作
 
-　　拷贝编译好的ss-local并更名为hmssc，拷贝kcptun客户端client_linux_amd64并更名为hmkcpc，拷贝编译好的privoxy并更名为pv。
+　　运行 dl.sh 下载软件源码包。（或可自己搜索下载指定版本的服务端的源码包，并修改 Dockerfile 中相关的文件名。）
 
 ## 构建镜像
 ```
