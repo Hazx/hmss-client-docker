@@ -23,7 +23,7 @@ KCPTUN (2) | 2082 | UDP - KCPTUN
 ```shell
 docker run -d -p SS端口:2080 -p SS端口:2080/udp -p KCP端口:2081 -p KCP端口:2081/udp -p KCP端口2:2082 -p KCP端口2:2082/udp --name 容器名称 -e SS_SERVER="服务器IP" -e SS_SERVERPORT="服务器SS端口" -e SS_PWD="SS密码" -e SS_CR="SS加密算法" --restart unless-stopped hazx/hmss-client:1.7
 ```
-默认情况下会启动一个SS，另有两个KCP客户端可选开启，共监听4个端口（SS与KCPTUN的3个端口均使用TCP和UDP两个协议），可按需开启和配置。SS的协议为SOCK5，若需要HTTP协议，可配置监听2079端口。
+默认情况下会启动一个SS，另有两个KCP客户端可选开启，共监听4个端口（SS与KCPTUN的3个端口均使用TCP和UDP两个协议），可按需开启和配置。SS的协议为SOCKS5，若需要HTTP协议，可配置监听2079端口。
 
 ## 可使用的环境变量
 
