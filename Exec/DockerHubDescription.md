@@ -1,8 +1,8 @@
-# hmss-1.6
+# hmss-1.7
 ## 客户端版本
 
-- shadowsocks: 3.3.1
-- kcptun: 20190910
+- shadowsocks: 3.3.4
+- kcptun: 20200201
 - privoxy: 3.0.28
 
 
@@ -21,7 +21,7 @@ KCPTUN (2) | 2082 | UDP - KCPTUN
 
 ## 启动镜像
 ```shell
-docker run -d -p SS端口:2080 -p SS端口:2080/udp -p KCP端口:2081 -p KCP端口:2081/udp -p KCP端口2:2082 -p KCP端口2:2082/udp --name 容器名称 -e SS_SERVER="服务器IP" -e SS_SERVERPORT="服务器SS端口" -e SS_PWD="SS密码" -e SS_CR="SS加密算法" --restart unless-stopped hazx/hmss-client:1.6.0
+docker run -d -p SS端口:2080 -p SS端口:2080/udp -p KCP端口:2081 -p KCP端口:2081/udp -p KCP端口2:2082 -p KCP端口2:2082/udp --name 容器名称 -e SS_SERVER="服务器IP" -e SS_SERVERPORT="服务器SS端口" -e SS_PWD="SS密码" -e SS_CR="SS加密算法" --restart unless-stopped hazx/hmss-client:1.7
 ```
 默认情况下会启动一个SS，另有两个KCP客户端可选开启，共监听4个端口（SS与KCPTUN的3个端口均使用TCP和UDP两个协议），可按需开启和配置。SS的协议为SOCK5，若需要HTTP协议，可配置监听2079端口。
 

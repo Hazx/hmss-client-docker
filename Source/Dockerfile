@@ -1,7 +1,7 @@
 FROM centos:7.6.1810
 
 LABEL maintainer="hazx632823367@gmail.com"
-LABEL Version="1.6.0"
+LABEL Version="1.7"
 
 COPY  * /root/hmss/
 
@@ -17,8 +17,8 @@ RUN yum install -y epel-release ;\
     mv /root/hmss/privoxy-3.0.28-stable/privoxy /root/hmss/pv ;\
     cd /root/hmss ;\
     rm -fr privoxy* ;\
-    tar zxvf shadowsocks-libev-3.3.1.tar.gz ;\
-    cd shadowsocks-libev-3.3.1 ;\
+    tar zxvf shadowsocks-libev-3.3.4.tar.gz ;\
+    cd shadowsocks-libev-3.3.4 ;\
     ./configure --prefix="/root/hmss/ssexe" ;\
     make ;\
     make install ;\
@@ -26,7 +26,7 @@ RUN yum install -y epel-release ;\
     cd /root/hmss ;\
     rm -fr shadowsocks* ;\
     rm -fr ssexe ;\
-    tar zxvf kcptun-linux-amd64-20190910.tar.gz ;\
+    tar zxvf kcptun-linux-amd64-20200201.tar.gz ;\
     mv client_linux_amd64 hmkcpc ;\
     rm -fr kcptun* server* dl.sh;\
     chmod a+x /root/hmss/start.sh /root/hmss/hmssc /root/hmss/hmkcpc /root/hmss/keep /root/hmss/pv ;\

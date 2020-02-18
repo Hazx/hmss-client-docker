@@ -1,8 +1,8 @@
-﻿# hmss-1.6
+﻿# hmss-1.7
 ## 客户端版本
 
-- shadowsocks: 3.3.1
-- kcptun: 20190910
+- shadowsocks: 3.3.4
+- kcptun: 20200201
 - privoxy: 3.0.28
 
 
