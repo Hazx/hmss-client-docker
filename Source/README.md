@@ -1,8 +1,8 @@
-﻿# hmss-1.7
+﻿# hmss-1.8
 ## 客户端版本
 
 - shadowsocks: 3.3.4
-- kcptun: 20200201
+- kcptun: 20200701
 - privoxy: 3.0.28
 
 
@@ -13,10 +13,10 @@
 Privoxy | 2079 | TCP - HTTP
 Shadowsocks | 2080 | TCP - SOCKS5
 Shadowsocks | 2080 | UDP - SOCKS5
-KCPTUN | 2081 | TCP - KCPTUN
-KCPTUN | 2081 | UDP - KCPTUN
-KCPTUN (2) | 2082 | TCP - KCPTUN
-KCPTUN (2) | 2082 | UDP - KCPTUN
+KCPTUN | 2081 | TCP - 随Server指向的监听端口
+KCPTUN | 2081 | UDP - 随Server指向的监听端口
+KCPTUN (2) | 2082 | TCP - 随Server指向的监听端口
+KCPTUN (2) | 2082 | UDP - 随Server指向的监听端口
 
 
 ## 构建镜像前的准备工作
@@ -31,7 +31,7 @@ docker build -t 新镜像名称 .
 
 ## 启动镜像
 ```shell
-docker run -d -p SS端口:2080 -p SS端口:2080/udp -p KCP端口:2081 -p KCP端口:2081/udp -p KCP端口2:2082 -p KCP端口2:2082/udp --name 容器名称 -e SS_SERVER="服务器IP" -e SS_SERVERPORT="服务器SS端口" -e SS_PWD="SS密码" -e SS_CR="SS加密算法" --restart unless-stopped hazx/hmss-client:1.7
+docker run -d -p SS端口:2080 -p SS端口:2080/udp -p KCP端口:2081 -p KCP端口:2081/udp -p KCP端口2:2082 -p KCP端口2:2082/udp --name 容器名称 -e SS_SERVER="服务器IP" -e SS_SERVERPORT="服务器SS端口" -e SS_PWD="SS密码" -e SS_CR="SS加密算法" --restart unless-stopped 镜像名
 ```
 默认情况下会启动一个SS，另有两个KCP客户端可选开启，共监听4个端口（SS与KCPTUN的3个端口均使用TCP和UDP两个协议），可按需开启和配置。SS的协议为SOCKS5，若需要HTTP协议，可配置监听2079端口。
 
