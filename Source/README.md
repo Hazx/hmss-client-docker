@@ -1,8 +1,8 @@
-﻿# hmss-1.8
+﻿# hmss-1.9
 ## 客户端版本
 
-- shadowsocks: 3.3.4
-- kcptun: 20200701
+- shadowsocks: 3.3.5
+- kcptun: 20201126
 - privoxy: 3.0.28
 
 
@@ -50,6 +50,7 @@ SS_TIME | SS超时时间 | 60
 SS_MTU | SS MTU | 1450
 SS_ONLY | 只使用SS，关闭KCP | true
 KCP_SERVER | KCP服务器地址:端口
+KCP_SERVER2 | KCP服务器2地址:端口
 KCP_PWD | KCP密码 | （同SS_PWD）
 KCP_CR | KCP加密算法 | salsa20
 KCP_MODE | KCP模式 | normal
@@ -64,6 +65,9 @@ KCP_CONN | KCP连接数 | 1
 KCP_KTIME | KCP的UDP连接自动过期时间 | 0（0关闭，单位秒）
 KCP_TTIME | 长连接过期时间 | 600（-1关闭，单位秒）
 KCP_BUF | Socket缓冲 | 4194304（单位字节）
+KCP_NCP | KCP禁用压缩 | false
+KCP_KAL | KCP心跳时间 | 10（单位秒）
+KCP_TCP | KCP模拟TCP连接 | false
 KCP2_ON | 启用双KCP | false
 KCP_ONLY | 只使用KCP，关闭SS | false
 

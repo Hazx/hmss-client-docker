@@ -14,7 +14,9 @@
     "parityshard": KCP_PS,
     "dscp": KCP_SDSCP,
     "sockbuf": KCP_BUF,
-    "keepalive": 10,
+    "nocomp": KCP_NCP,
+    "keepalive": KCP_KAL,
+    "tcp": KCP_TCP,
     "log": "/root/hmss/kcpc.log",
     "quiet": true
 }

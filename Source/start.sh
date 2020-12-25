@@ -45,14 +45,16 @@ fi
 
 # 调整配置
 # SS密码
-if [[ ${KCP_ONLY} == true ]];then
-    SS_PWD="KCP_ONLY"
-elif [ ! -n "${SS_PWD}" ];then
-    echo "[ERROR] No SS password configured. Please check environment variables."
-    exit 1
-elif [[ ${SS_PWD} == "" ]];then
-    echo "[ERROR] No SS password configured. Please check environment variables."
-    exit 1
+if [ ! -n "${SS_PWD}" ] || [[ ${SS_PWD} == "" ]];then
+    if [[ ${KCP_ONLY} == true ]];then
+        if [ ! -n "${KCP_PWD}" ] || [[ ${KCP_PWD} == "" ]];then
+            echo "[ERROR] KCP_ONLY Mode: No KCP or SS password configured. Please check container's environment variables."
+            exit 1
+        fi
+    else
+        echo "[ERROR] No SS password configured. Please check container's environment variables."
+        exit 1
+    fi
 fi
 
 # SS加密算法
@@ -73,16 +75,14 @@ fi
 
 # KCP服务器地址
 sed -i "s/KCP_SERVER/${KCP_SERVER}/g" /root/hmss/kcpc.json
-sed -i "s/KCP_SERVER/${KCP_SERVER}/g" /root/hmss/kcpc2.json
+sed -i "s/KCP_SERVER2/${KCP_SERVER2}/g" /root/hmss/kcpc2.json
 
 # KCP密码
-if [ ! -n "${KCP_PWD}" ];then
+if [ ! -n "${KCP_PWD}" ] || [[ ${KCP_PWD} == "" ]];then
+    echo "[INFO] No KCP password configured. Set KCP Password by SS password."
     sed -i "s/KCP_PWD/$SS_PWD/g" /root/hmss/kcpc.json
     sed -i "s/KCP_PWD/$SS_PWD/g" /root/hmss/kcpc2.json
 else
-    if [[ ${KCP_PWD} == "" ]];then
-        KCP_PWD=$SS_PWD
-    fi
     sed -i "s/KCP_PWD/$KCP_PWD/g" /root/hmss/kcpc.json
     sed -i "s/KCP_PWD/$KCP_PWD/g" /root/hmss/kcpc2.json
 fi
@@ -136,6 +136,18 @@ sed -i "s/KCP_TTIME/${KCP_TTIME:-"600"}/g" /root/hmss/kcpc2.json
 # KCP Socket缓冲
 sed -i "s/KCP_BUF/${KCP_BUF:-"4194304"}/g" /root/hmss/kcpc.json
 sed -i "s/KCP_BUF/${KCP_BUF:-"4194304"}/g" /root/hmss/kcpc2.json
+
+# KCP禁用压缩
+sed -i "s/KCP_NCP/${KCP_NCP:-"false"}/g" /root/hmss/kcpc.json
+sed -i "s/KCP_NCP/${KCP_NCP:-"false"}/g" /root/hmss/kcpc2.json
+
+# KCP心跳时间
+sed -i "s/KCP_KAL/${KCP_KAL:-"10"}/g" /root/hmss/kcpc.json
+sed -i "s/KCP_KAL/${KCP_KAL:-"10"}/g" /root/hmss/kcpc2.json
+
+# KCP模拟TCP连接
+sed -i "s/KCP_TCP/${KCP_TCP:-"false"}/g" /root/hmss/kcpc.json
+sed -i "s/KCP_TCP/${KCP_TCP:-"false"}/g" /root/hmss/kcpc2.json
 
 
 

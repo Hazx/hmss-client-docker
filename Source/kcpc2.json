@@ -1,6 +1,6 @@
 {
     "localaddr": ":2082",
-    "remoteaddr": "KCP_SERVER",
+    "remoteaddr": "KCP_SERVER2",
     "key": "KCP_PWD",
     "crypt": "KCP_CR",
     "mode": "KCP_MODE",
@@ -14,7 +14,9 @@
     "parityshard": KCP_PS,
     "dscp": KCP_SDSCP,
     "sockbuf": KCP_BUF,
-    "keepalive": 10,
+    "nocomp": KCP_NCP,
+    "keepalive": KCP_KAL,
+    "tcp": KCP_TCP,
     "log": "/root/hmss/kcpc2.log",
     "quiet": true
 }
