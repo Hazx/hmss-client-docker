@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cp /root/hmss/hmssc /export/
+cp /root/hmss/pv /export/
+cp /root/hmss/hmkcpc /export/
+cp /root/hmss/keep /export/
+cp /root/hmss/hmobc /export/
+
+echo "export finishied."
+
+
+
+
+
+
+
+
